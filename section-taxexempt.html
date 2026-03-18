@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <title>Loss of Federal Tax-Exempt Status — Bridgepoint Ditch Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFAF7;
+            --text: #2C2C2C;
+            --text-light: #5A5A5A;
+            --accent: #3D6B59;
+            --accent-light: #E8F0EC;
+            --border: #D4D0C8;
+            --card-bg: #FFFFFF;
+            --highlight: #C4763A;
+            --section-num: #8B7E6A;
+            --red: #b91c1c;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── PASSWORD GATE ── */
+        #gate {
+            position: fixed; inset: 0;
+            background: #2C2C2C;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999; transition: opacity 0.4s;
+        }
+        #gate.hidden { opacity: 0; pointer-events: none; }
+        .gate-box {
+            background: var(--bg); border-radius: 8px; padding: 52px 44px;
+            max-width: 420px; width: 90%; text-align: center;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+        }
+        .gate-box h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.3rem; color: var(--text); margin-bottom: 6px; font-weight: 700;
+        }
+        .gate-box .gate-sub { font-size: 0.85rem; color: var(--text-light); margin-bottom: 32px; line-height: 1.5; }
+        .gate-box input {
+            width: 100%; padding: 13px 16px; border: 1.5px solid var(--border); border-radius: 6px;
+            font-size: 1.05rem; text-align: center; letter-spacing: 0.2em; margin-bottom: 12px;
+            font-family: monospace; outline: none; background: white; color: var(--text);
+        }
+        .gate-box input:focus { border-color: var(--accent); }
+        .gate-box button {
+            width: 100%; padding: 13px; background: var(--accent); color: white; border: none;
+            border-radius: 6px; font-size: 0.95rem; cursor: pointer;
+            font-family: 'DM Sans', sans-serif; font-weight: 600;
+        }
+        .gate-box button:hover { background: #2f5244; }
+        .gate-error { color: var(--red); font-size: 0.82rem; margin-top: 10px; display: none; }
+
+        /* ── SITE ── */
+        #site { display: none; }
+
+        .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 20px 0 0;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        .breadcrumb a { color: var(--accent); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* Section header */
+        .section-header {
+            padding: 32px 0 28px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 36px;
+        }
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--section-num);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+        .section-header h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+        .status {
+            display: inline-block; font-size: 11px; font-weight: 600;
+            padding: 3px 10px; border-radius: 100px;
+        }
+        .status-unresolved { background: #FFF3E0; color: var(--highlight); }
+        .status-resolved   { background: var(--accent-light); color: var(--accent); }
+        .status-pending    { background: #F0ECFF; color: #5B4FA0; }
+
+        /* Summary */
+        .summary-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+        }
+        .summary-box .summary-label {
+            font-size: 11px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 10px;
+        }
+        .summary-box p {
+            font-size: 15px; color: var(--text-light); line-height: 1.75;
+            margin-bottom: 10px;
+        }
+        .summary-box p:last-child { margin-bottom: 0; }
+
+        /* Docs section */
+        .docs-label {
+            font-size: 12px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1.5px;
+            margin-bottom: 16px; padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Document block */
+        .doc-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .doc-block-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .doc-block-header .doc-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px; font-weight: 600;
+            color: var(--text); margin-bottom: 6px;
+        }
+        .doc-block-header .doc-desc {
+            font-size: 13px; color: var(--text-light); line-height: 1.55;
+        }
+        .doc-actions {
+            display: flex; gap: 8px; flex-shrink: 0;
+            flex-wrap: wrap; padding-top: 2px;
+        }
+        .btn-view {
+            display: inline-block; padding: 8px 18px;
+            background: var(--accent); color: white;
+            text-decoration: none; border-radius: 6px;
+            font-size: 13px; font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+            white-space: nowrap;
+        }
+        .btn-view:hover { background: #2f5244; }
+        .btn-download {
+            display: inline-block; padding: 8px 18px;
+            border: 1px solid var(--border); color: var(--text-light);
+            text-decoration: none; border-radius: 6px;
+            font-size: 13px; font-family: 'DM Sans', sans-serif;
+            white-space: nowrap;
+        }
+        .btn-download:hover { border-color: var(--accent); color: var(--accent); }
+        .pdf-frame { width: 100%; height: 520px; border: none; display: block; }
+
+        /* Placeholder */
+        .placeholder {
+            background: var(--bg);
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .placeholder p { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+        .placeholder code {
+            background: white; border: 1px solid var(--border);
+            padding: 2px 7px; border-radius: 4px;
+            font-size: 12px; color: var(--accent);
+        }
+
+        /* Navigation */
+        .page-nav {
+            display: flex; gap: 12px; flex-wrap: wrap;
+            margin-top: 56px; padding-top: 28px;
+            border-top: 1px solid var(--border);
+        }
+        .nav-btn {
+            padding: 10px 20px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 13px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .nav-btn.home {
+            background: var(--accent); color: white;
+            border-color: var(--accent);
+        }
+        .nav-btn.home:hover { background: #2f5244; }
+
+        /* Footer */
+        footer {
+            margin-top: 64px; padding: 28px 0 48px;
+            border-top: 1px solid var(--border);
+            font-size: 12px; color: var(--section-num);
+        }
+
+        /* Legal References */
+        .legal-refs { margin-bottom: 40px; }
+        .legal-refs-label {
+            font-size: 12px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1.5px;
+            margin-bottom: 16px; padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        .legal-ref-block {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 8px; padding: 20px 24px; margin-bottom: 12px;
+        }
+        .legal-ref-block .ref-type {
+            font-size: 11px; font-weight: 600; color: var(--accent);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+        }
+        .legal-ref-block .ref-cite {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px;
+        }
+        .legal-ref-block .ref-text {
+            font-size: 13px; color: var(--text-light); line-height: 1.65; margin-bottom: 12px;
+        }
+        .legal-ref-block .ref-text:last-child { margin-bottom: 0; }
+        .screenshot-placeholder {
+            background: var(--bg); border: 2px dashed var(--border); border-radius: 8px;
+            padding: 24px; margin-bottom: 12px; text-align: center;
+        }
+        .screenshot-placeholder p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+        .screenshot-placeholder code {
+            background: white; border: 1px solid var(--border);
+            padding: 2px 7px; border-radius: 4px; font-size: 12px; color: var(--accent);
+        }
+
+        @media (max-width: 600px) {
+            .doc-block-header { flex-direction: column; }
+            .doc-actions { width: 100%; }
+            .btn-view, .btn-download { flex: 1; text-align: center; }
+            .section-header h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="gate">
+    <div class="gate-box">
+        <h1>Bridgepoint Ditch Company</h1>
+        <p class="gate-sub">Members-only access.<br>Enter your access code to continue.</p>
+        <input type="password" id="pwd" placeholder="Access Code" autocomplete="off">
+        <button onclick="checkPassword()">Enter</button>
+        <div class="gate-error" id="err">Incorrect access code.</div>
+    </div>
+</div>
+
+<div id="site">
+<div class="container">
+
+    <div class="breadcrumb">
+        <a href="index.html">← Back to Overview</a>
+    </div>
+
+    <div class="section-header">
+        <div class="section-label">Corporate Standing &nbsp;·&nbsp; 02 of 09</div>
+        <h1>Loss of Federal Tax-Exempt Status</h1>
+        <span class="status status-pending">Reinstatement pending</span>
+    </div>
+
+    <div class="summary-box">
+        <div class="summary-label">Summary</div>
+        <p>The organization's 501(c)(12) tax-exempt status was automatically revoked by the IRS after no Form 990-N was filed since the EIN was assigned in March 2020. A Form 1024 application for reinstatement has been filed and the $600 fee has been paid. Reinstatement is expected within six to seven months.</p>
+    </div>
+
+    <div class="legal-refs">
+        <div class="legal-refs-label">Legal References</div>
+        <div class="legal-ref-block">
+            <div class="ref-type">Bylaws</div>
+            <div class="ref-cite">Article V, Section 1(g)</div>
+            <div class="ref-text">"The President, in collaboration with the Board of Directors, shall ensure that the organization adheres to all legal and regulatory obligations, proactively addressing administrative requirements to maintain the Company's standing in accordance with applicable laws."</div>
+            <div class="screenshot-placeholder">
+                <p>Bylaw screenshot: <code>docs/screenshots/bylaws-art5-sec1g.png</code></p>
+            </div>
+            <div class="ref-cite">Article V, Section 1(f)</div>
+            <div class="ref-text">"The President shall file and maintain up-to-date records of all corporate actions, including but not limited to the annual report with the Secretary of State of Oregon, liens with the county clerk, and any other administrative requirements essential to the good standing and compliance of the organization."</div>
+            <div class="screenshot-placeholder">
+                <p>Bylaw screenshot: <code>docs/screenshots/bylaws-art5-sec1f.png</code></p>
+            </div>
+        </div>
+        <div class="legal-ref-block">
+            <div class="ref-type">Federal Law</div>
+            <div class="ref-cite">IRC Section 6033(j) — Automatic Revocation</div>
+            <div class="ref-text">Tax-exempt status is automatically revoked for any organization that fails to file required returns or notices for three consecutive years.</div>
+            <div class="ref-cite">IRC Section 501(c)(12) — Mutual Ditch or Irrigation Companies</div>
+            <div class="ref-text">Provides tax-exempt status for mutual ditch or irrigation companies whose income consists solely of assessments, dues, and fees collected from members for the purpose of meeting expenses.</div>
+            <div class="ref-cite">IRS Form 990-N (e-Postcard)</div>
+            <div class="ref-text">Required annual filing for tax-exempt organizations with gross receipts normally $50,000 or less. No Form 990-N has been filed since the EIN was assigned in March 2020.</div>
+        </div>
+    </div>
+
+    <div class="docs-label">Supporting Documents</div>
+
+    <div class="placeholder">
+        <p>
+            <strong>Documents for this section go here.</strong><br><br>
+            Upload your files to the <code>docs/</code> folder on GitHub, then replace this
+            placeholder block with a document block. Copy the document block pattern from
+            <code>section-dissolution.html</code> and update the filename, title, and description.
+        </p>
+    </div>
+
+    <div class="page-nav">
+        <a href="index.html" class="nav-btn home">&#8617; Overview</a>
+        <a href="section-dissolution.html" class="nav-btn">← Administrative Dissolution</a>
+        <a href="section-invoicing.html" class="nav-btn">Member Invoicing →</a>
+    </div>
+
+</div>
+
+<footer>
+    <div class="container">
+        Bridgepoint Ditch Company — Member Governance Documentation &nbsp;·&nbsp; Private &amp; Confidential
+    </div>
+</footer>
+</div>
+
+<script>
+    const ACCESS_CODE = "BDC2024";
+    if (sessionStorage.getItem("bdc_unlocked") === "yes") {
+        document.getElementById("gate").style.display = "none";
+        document.getElementById("site").style.display = "block";
+    }
+    function checkPassword() {
+        const val = document.getElementById("pwd").value.trim();
+        if (val === ACCESS_CODE) {
+            sessionStorage.setItem("bdc_unlocked", "yes");
+            document.getElementById("gate").classList.add("hidden");
+            setTimeout(() => {
+                document.getElementById("gate").style.display = "none";
+                document.getElementById("site").style.display = "block";
+            }, 400);
+        } else {
+            document.getElementById("err").style.display = "block";
+            document.getElementById("pwd").value = "";
+            document.getElementById("pwd").focus();
+        }
+    }
+    document.getElementById("pwd").addEventListener("keydown", e => {
+        if (e.key === "Enter") checkPassword();
+    });
+    document.getElementById("pwd").focus();
+</script>
+</body>
+</html>
