@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <title>Corrective Action Proposal — Bridgepoint Ditch Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFAF7;
+            --text: #2C2C2C;
+            --text-light: #5A5A5A;
+            --accent: #3D6B59;
+            --accent-light: #E8F0EC;
+            --border: #D4D0C8;
+            --card-bg: #FFFFFF;
+            --highlight: #C4763A;
+            --section-num: #8B7E6A;
+            --red: #b91c1c;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── PASSWORD GATE ── */
+        #gate {
+            position: fixed; inset: 0;
+            background: #2C2C2C;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999; transition: opacity 0.4s;
+        }
+        #gate.hidden { opacity: 0; pointer-events: none; }
+        .gate-box {
+            background: var(--bg); border-radius: 8px; padding: 52px 44px;
+            max-width: 420px; width: 90%; text-align: center;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+        }
+        .gate-box h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.3rem; color: var(--text); margin-bottom: 6px; font-weight: 700;
+        }
+        .gate-box .gate-sub { font-size: 0.85rem; color: var(--text-light); margin-bottom: 32px; line-height: 1.5; }
+        .gate-box input {
+            width: 100%; padding: 13px 16px; border: 1.5px solid var(--border); border-radius: 6px;
+            font-size: 1.05rem; text-align: center; letter-spacing: 0.2em; margin-bottom: 12px;
+            font-family: monospace; outline: none; background: white; color: var(--text);
+        }
+        .gate-box input:focus { border-color: var(--accent); }
+        .gate-box button {
+            width: 100%; padding: 13px; background: var(--accent); color: white; border: none;
+            border-radius: 6px; font-size: 0.95rem; cursor: pointer;
+            font-family: 'DM Sans', sans-serif; font-weight: 600;
+        }
+        .gate-box button:hover { background: #2f5244; }
+        .gate-error { color: var(--red); font-size: 0.82rem; margin-top: 10px; display: none; }
+
+        /* ── SITE ── */
+        #site { display: none; }
+        .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+        .breadcrumb { padding: 20px 0 0; font-size: 13px; color: var(--text-light); }
+        .breadcrumb a { color: var(--accent); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .section-header {
+            padding: 32px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 36px;
+        }
+        .section-label {
+            font-size: 12px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;
+        }
+        .section-header h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 26px; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 12px;
+        }
+        .status {
+            display: inline-block; font-size: 11px; font-weight: 600;
+            padding: 3px 10px; border-radius: 100px;
+        }
+        .status-pending { background: #F0ECFF; color: #5B4FA0; }
+
+        /* Summary */
+        .summary-box {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0;
+            padding: 24px 28px; margin-bottom: 40px;
+        }
+        .summary-box .summary-label {
+            font-size: 11px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 10px;
+        }
+        .summary-box p {
+            font-size: 15px; color: var(--text-light); line-height: 1.75; margin-bottom: 10px;
+        }
+        .summary-box p:last-child { margin-bottom: 0; }
+
+        /* Proposal cards */
+        .proposals-label {
+            font-size: 12px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1.5px;
+            margin-bottom: 20px; padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .proposal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .proposal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        .proposal-header .proposal-num {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 13px; font-weight: 600; color: var(--section-num);
+            min-width: 20px;
+        }
+        .proposal-header .proposal-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px; font-weight: 600; color: var(--text);
+            flex: 1;
+        }
+        .proposal-cost {
+            font-size: 12px; font-weight: 600; padding: 4px 12px;
+            border-radius: 100px; white-space: nowrap;
+        }
+        .cost-free { background: var(--accent-light); color: var(--accent); }
+        .cost-minimal { background: #F0ECFF; color: #5B4FA0; }
+
+        .proposal-body {
+            padding: 20px 24px;
+        }
+        .proposal-body .problem-label,
+        .proposal-body .solution-label,
+        .proposal-body .outcome-label {
+            font-size: 11px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 6px; margin-top: 16px;
+        }
+        .proposal-body .problem-label { color: var(--highlight); margin-top: 0; }
+        .proposal-body .solution-label { color: var(--accent); }
+        .proposal-body .outcome-label { color: #5B4FA0; }
+
+        .proposal-body p {
+            font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 8px;
+        }
+        .proposal-body p:last-child { margin-bottom: 0; }
+
+        /* Addresses box */
+        .addresses-box {
+            background: var(--accent-light);
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-top: 10px;
+            font-size: 13px;
+            color: var(--accent);
+            line-height: 1.6;
+        }
+        .addresses-box strong { color: var(--text); }
+
+        /* Cost summary */
+        .cost-summary {
+            background: var(--card-bg);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 28px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+        .cost-summary h3 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 16px;
+        }
+        .cost-row {
+            display: flex; justify-content: space-between;
+            padding: 8px 0; border-bottom: 1px solid var(--border);
+            font-size: 14px; color: var(--text-light);
+        }
+        .cost-row:last-of-type { border-bottom: none; }
+        .cost-row.total {
+            border-top: 2px solid var(--text);
+            margin-top: 8px; padding-top: 12px;
+            font-weight: 600; color: var(--text); font-size: 15px;
+        }
+        .cost-row .cost-value { font-weight: 600; }
+        .cost-value.free { color: var(--accent); }
+
+        /* Timeline */
+        .timeline-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+        }
+        .timeline-box h4 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px;
+        }
+        .timeline-box p {
+            font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 6px;
+        }
+        .timeline-phase {
+            font-size: 11px; font-weight: 600; color: var(--accent);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+        }
+
+        /* Closing */
+        .closing-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 24px 28px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .closing-box p {
+            font-size: 15px; color: var(--text-light); line-height: 1.75;
+            margin-bottom: 10px;
+        }
+        .closing-box p:last-child { margin-bottom: 0; }
+
+        /* Navigation */
+        .page-nav {
+            display: flex; gap: 12px; flex-wrap: wrap;
+            margin-top: 56px; padding-top: 28px;
+            border-top: 1px solid var(--border);
+        }
+        .nav-btn {
+            padding: 10px 20px; border: 1px solid var(--border); border-radius: 6px;
+            text-decoration: none; color: var(--text-light); font-size: 13px;
+            font-family: 'DM Sans', sans-serif; font-weight: 500; transition: all 0.2s;
+        }
+        .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .nav-btn.home { background: var(--accent); color: white; border-color: var(--accent); }
+        .nav-btn.home:hover { background: #2f5244; }
+
+        footer {
+            margin-top: 64px; padding: 28px 0 48px;
+            border-top: 1px solid var(--border);
+            font-size: 12px; color: var(--section-num);
+        }
+
+        @media (max-width: 600px) {
+            .proposal-header { flex-direction: column; align-items: flex-start; }
+            .section-header h1 { font-size: 22px; }
+            .cost-row { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="gate">
+    <div class="gate-box">
+        <h1>Bridgepoint Ditch Company</h1>
+        <p class="gate-sub">Members-only access.<br>Enter your access code to continue.</p>
+        <input type="password" id="pwd" placeholder="Access Code" autocomplete="off">
+        <button onclick="checkPassword()">Enter</button>
+        <div class="gate-error" id="err">Incorrect access code.</div>
+    </div>
+</div>
+
+<div id="site">
+<div class="container">
+
+    <div class="breadcrumb">
+        <a href="index.html">← Back to Overview</a>
+    </div>
+
+    <div class="section-header">
+        <div class="section-label">Looking Forward &nbsp;·&nbsp; 11 of 11</div>
+        <h1>Corrective Action Proposal — Governance Modernization</h1>
+        <span class="status status-pending">Proposed</span>
+    </div>
+
+    <div class="summary-box">
+        <div class="summary-label">Summary</div>
+        <p>The issues documented in the preceding sections are not isolated incidents. They reflect a pattern of governance that operated without transparency, accountability, or member access to information. Correcting this requires structural changes — not just changes in personnel.</p>
+        <p>The following proposals use free or near-free tools to modernize how Bridgepoint Ditch Company communicates with its members, conducts meetings, tracks finances and maintenance, and ensures that every member has access to the information they are entitled to. Total estimated annual cost: $13.33.</p>
+        <p>These proposals will be presented to the membership for consideration. The decisions belong to the members.</p>
+    </div>
+
+    <div class="proposals-label">Proposals</div>
+
+    <!-- PROPOSAL 1 -->
+    <div class="proposal-card">
+        <div class="proposal-header">
+            <span class="proposal-num">01</span>
+            <span class="proposal-title">Recorded Meetings via Zoom</span>
+            <span class="proposal-cost cost-minimal">$13.33/year</span>
+        </div>
+        <div class="proposal-body">
+            <div class="problem-label">Problem</div>
+            <p>Members who cannot attend meetings have no way to know what was discussed or decided. There is no objective record of proceedings. Disputes about what was said go unresolved.</p>
+
+            <div class="solution-label">Solution</div>
+            <p>Host the annual membership meeting on Zoom Pro ($13.33 for one month, cancel after). Record the meeting. Upload the recording to an unlisted YouTube video — free, unlimited storage, accessible only by link. Share the link with all members afterward.</p>
+            <p>Remote members participate and vote in real time via Zoom. Board meetings can use the free Zoom tier (40-minute limit) or the same Pro subscription month.</p>
+
+            <div class="outcome-label">What This Achieves</div>
+            <p>Every member can watch the full meeting at their convenience. Remote members participate live. The recording is a permanent, uneditable record. Disputes about what was said are eliminated. No additional labor — the host clicks "Record."</p>
+        </div>
+    </div>
+
+    <!-- PROPOSAL 2 -->
+    <div class="proposal-card">
+        <div class="proposal-header">
+            <span class="proposal-num">02</span>
+            <span class="proposal-title">Member Email Distribution List</span>
+            <span class="proposal-cost cost-free">Free</span>
+        </div>
+        <div class="proposal-body">
+            <div class="problem-label">Problem</div>
+            <p>Members receive information only through mailed notices and word of mouth. There is no efficient way to distribute updates between meetings. Board members have communicated privately, excluding other officers from decisions.</p>
+
+            <div class="solution-label">Solution</div>
+            <p>Create a free email distribution list using Google Groups. All official communications — meeting notices, financial updates, maintenance schedules — go through the list. Any board member can send. All members receive. The archive is searchable and permanent. Members who prefer paper notices continue receiving them.</p>
+
+            <div class="outcome-label">What This Achieves</div>
+            <p>Instant, documented communication with all members. No more private side channels. Every board member sees every communication. Permanent archive eliminates "I never received the notice" disputes. One-time setup: 30 minutes.</p>
+        </div>
+    </div>
+
+    <!-- PROPOSAL 3 -->
+    <div class="proposal-card">
+        <div class="proposal-header">
+            <span class="proposal-num">03</span>
+            <span class="proposal-title">Financial Transparency Dashboard</span>
+            <span class="proposal-cost cost-free">Free</span>
+        </div>
+        <div class="proposal-body">
+            <div class="problem-label">Problem</div>
+            <p>Members have no visibility into the organization's financial position between annual meetings. Assessment revenue, maintenance expenditures, and account balances are known only to the officers handling the money.</p>
+
+            <div class="solution-label">Solution</div>
+            <p>Create a view-only Google Sheet accessible to all members via link. Tabs for annual budget, income, expenses, account balance, and delinquent accounts (anonymized). Updated quarterly by the Treasurer — approximately 15 minutes per update. Annual budget presented and adopted by membership vote.</p>
+
+            <div class="outcome-label">What This Achieves</div>
+            <p>Complete financial transparency without printing or mailing reports. Members can verify assessments are collected and spent properly at any time. Budget overruns are visible immediately, not discovered a year later.</p>
+        </div>
+    </div>
+
+    <!-- PROPOSAL 4 -->
+    <div class="proposal-card">
+        <div class="proposal-header">
+            <span class="proposal-num">04</span>
+            <span class="proposal-title">Permanent Document Archive</span>
+            <span class="proposal-cost cost-free">Free</span>
+        </div>
+        <div class="proposal-body">
+            <div class="problem-label">Problem</div>
+            <p>Governing documents, meeting minutes, financial records, and correspondence have been stored inconsistently. The Secretary could not locate 2025 board meeting minutes when asked. No central, accessible archive exists.</p>
+
+            <div class="solution-label">Solution</div>
+            <p>Maintain a permanent, password-protected online archive (this website or a shared Google Drive folder) containing: bylaws, all meeting minutes, financial reports, maintenance records, correspondence, and easement documents. Updated after each meeting or significant event. Members receive the access link upon request.</p>
+
+            <div class="addresses-box">
+                <strong>Legal basis:</strong> ORS 65.771 requires nonprofit corporations to keep permanent records including minutes and governing documents. ORS 65.774 grants members the right to inspect corporate records.
+            </div>
+
+            <div class="outcome-label">What This Achieves</div>
+            <p>Every member has access to every governing document at all times. New members can review the organization's complete history. No single officer controls access. Documents cannot be lost, misplaced, or withheld.</p>
+        </div>
+    </div>
+
+    <!-- PROPOSAL 5 -->
+    <div class="proposal-card">
+        <div class="proposal-header">
+            <span class="proposal-num">05</span>
+            <span class="proposal-title">Maintenance Documentation &amp; Cleaning Log</span>
+            <span class="proposal-cost cost-free">Free</span>
+        </div>
+        <div class="proposal-body">
+            <div class="problem-label">Problem</div>
+            <p>There is no written record of what maintenance work has been performed, which sections have been cleaned, or what the contractor's scope of work includes. Expenditures cannot be verified. Some sections are cleaned annually while others are neglected. The organization pays for maintenance on BLM property without cost recovery.</p>
+
+            <div class="solution-label">Solution</div>
+            <p>Before each annual cleaning: two board members walk the ditch together, document conditions with photos, define scope of work in writing. Contractor receives written scope before beginning work. After cleaning: photos of completed work, invoice matched against scope. Log entries include date, section cleaned, contractor, cost, and before/after photos. BLM section tracked separately.</p>
+
+            <div class="addresses-box">
+                <strong>Bylaws basis:</strong> Article VII, Section 4 requires all paid maintenance to be pre-approved by the Board. Article IV, Section 8 requires formal consensus among a minimum of two board members for any decision-making process.
+            </div>
+
+            <div class="outcome-label">What This Achieves</div>
+            <p>Members can verify assessments are spent on actual work. Year-over-year comparison shows whether costs are reasonable. Written scope prevents contractor disputes. BLM cost exposure is documented and actionable.</p>
+        </div>
+    </div>
+
+    <!-- PROPOSAL 6 -->
+    <div class="proposal-card">
+        <div class="proposal-header">
+            <span class="proposal-num">06</span>
+            <span class="proposal-title">Remote Voting &amp; Participation</span>
+            <span class="proposal-cost cost-free">Free (included in Zoom)</span>
+        </div>
+        <div class="proposal-body">
+            <div class="problem-label">Problem</div>
+            <p>Members who cannot attend in person must rely on written proxies. Proxy procedures have been challenged and disputed. Members in other states are effectively excluded. Quorum is difficult to achieve with a geographically dispersed membership.</p>
+
+            <div class="solution-label">Solution</div>
+            <p>Allow Zoom attendance with live voting. Members attending via Zoom are counted for quorum. Voting by remote members conducted by roll call — each member states their vote audibly on the recorded meeting. Written proxies remain available for members who cannot attend live or by Zoom.</p>
+
+            <div class="addresses-box">
+                <strong>Legal basis:</strong> ORS 65.205 authorizes participation in meetings by remote communication for Oregon nonprofit corporations. A bylaw amendment would formally adopt this provision.
+            </div>
+
+            <div class="outcome-label">What This Achieves</div>
+            <p>Members in other states or with scheduling conflicts participate fully. Higher quorum without requiring physical presence. The recorded meeting captures every vote for the permanent record. Proxy disputes are reduced — members vote for themselves in real time.</p>
+        </div>
+    </div>
+
+    <!-- PROPOSAL 7 -->
+    <div class="proposal-card">
+        <div class="proposal-header">
+            <span class="proposal-num">07</span>
+            <span class="proposal-title">Annual Officer Compliance Report</span>
+            <span class="proposal-cost cost-free">Free</span>
+        </div>
+        <div class="proposal-body">
+            <div class="problem-label">Problem</div>
+            <p>There is no mechanism to verify that officers are performing their duties between annual meetings. The administrative dissolution, loss of tax-exempt status, financial control failures, and absence of maintenance documentation all went undetected for years.</p>
+
+            <div class="solution-label">Solution</div>
+            <p>Each officer completes a one-page compliance checklist before the annual meeting and presents it in five minutes. The President reports on state and federal filings, maintenance completed, gate inspections, and contingency planning. The Secretary reports on minutes, document maintenance, and bank signatory status. The Treasurer reports on invoicing, collections, delinquent accounts, and financial statements. The checklist is filed in the permanent archive.</p>
+
+            <div class="outcome-label">What This Achieves</div>
+            <p>Members see at a glance whether officers performed their duties. Failures become visible immediately, not after years of accumulation. Officers who do their jobs get public credit. New officers have a clear roadmap of what is expected. No additional labor — officers are already required to perform these duties.</p>
+        </div>
+    </div>
+
+    <!-- COST SUMMARY -->
+    <div class="cost-summary">
+        <h3>Total Annual Cost</h3>
+        <div class="cost-row">
+            <span>Zoom Pro — one month per year</span>
+            <span class="cost-value">$13.33</span>
+        </div>
+        <div class="cost-row">
+            <span>YouTube — meeting recording hosting</span>
+            <span class="cost-value free">Free</span>
+        </div>
+        <div class="cost-row">
+            <span>Google Groups — email distribution list</span>
+            <span class="cost-value free">Free</span>
+        </div>
+        <div class="cost-row">
+            <span>Google Sheets — financial dashboard</span>
+            <span class="cost-value free">Free</span>
+        </div>
+        <div class="cost-row">
+            <span>GitHub Pages — document archive</span>
+            <span class="cost-value free">Free</span>
+        </div>
+        <div class="cost-row">
+            <span>Google Sheets — maintenance log</span>
+            <span class="cost-value free">Free</span>
+        </div>
+        <div class="cost-row">
+            <span>Compliance checklist template</span>
+            <span class="cost-value free">Free</span>
+        </div>
+        <div class="cost-row total">
+            <span>Total</span>
+            <span class="cost-value">$13.33 per year</span>
+        </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="proposals-label">Implementation Timeline</div>
+
+    <div class="timeline-box">
+        <div class="timeline-phase">Before April 11 Meeting</div>
+        <h4>Preparation</h4>
+        <p>Document archive website operational (complete).</p>
+        <p>Proxy form standardized and distributed with meeting notice.</p>
+        <p>Zoom Pro subscription activated for April 11 meeting.</p>
+    </div>
+
+    <div class="timeline-box">
+        <div class="timeline-phase">At the April 11 Membership Meeting</div>
+        <h4>Adoption</h4>
+        <p>Present proposals to the membership for discussion and vote.</p>
+        <p>Adopt standing rules for Zoom participation, annual compliance report, and maintenance documentation.</p>
+        <p>Propose bylaw amendment for remote participation (requires proper notice per Article XI, Section 2 — vote at subsequent meeting).</p>
+        <p>Collect email addresses from willing members for distribution list.</p>
+    </div>
+
+    <div class="timeline-box">
+        <div class="timeline-phase">Within 30 Days of Meeting</div>
+        <h4>Implementation</h4>
+        <p>Email distribution list created and tested.</p>
+        <p>Financial dashboard created and shared with membership.</p>
+        <p>Meeting recording uploaded and link distributed to all members.</p>
+        <p>Maintenance log template created and ready for use.</p>
+    </div>
+
+    <div class="timeline-box">
+        <div class="timeline-phase">Before Next Annual Meeting</div>
+        <h4>First Full Cycle</h4>
+        <p>Compliance checklists distributed to officers 30 days before meeting.</p>
+        <p>All systems tested and operational through one complete annual cycle.</p>
+        <p>Bylaw amendment for remote participation voted on at properly noticed meeting.</p>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing-box">
+        <p>These proposals require no special expertise, no significant funding, and no increase in volunteer labor. They use tools that are free, widely available, and accessible from any phone or computer.</p>
+        <p>The only thing they require is a commitment to transparency — the principle that every member has the right to know how their organization is being run, whether or not they can attend a meeting in person.</p>
+    </div>
+
+    <div class="page-nav">
+        <a href="index.html" class="nav-btn home">&#8617; Overview</a>
+        <a href="section-easement.html" class="nav-btn">← Easement</a>
+    </div>
+
+</div>
+
+<footer>
+    <div class="container">
+        Bridgepoint Ditch Company — Member Governance Documentation &nbsp;·&nbsp; Private &amp; Confidential
+    </div>
+</footer>
+</div>
+
+<script>
+    const ACCESS_CODE = "BDC2024";
+    if (sessionStorage.getItem("bdc_unlocked") === "yes") {
+        document.getElementById("gate").style.display = "none";
+        document.getElementById("site").style.display = "block";
+    }
+    function checkPassword() {
+        const val = document.getElementById("pwd").value.trim();
+        if (val === ACCESS_CODE) {
+            sessionStorage.setItem("bdc_unlocked", "yes");
+            document.getElementById("gate").classList.add("hidden");
+            setTimeout(() => {
+                document.getElementById("gate").style.display = "none";
+                document.getElementById("site").style.display = "block";
+            }, 400);
+        } else {
+            document.getElementById("err").style.display = "block";
+            document.getElementById("pwd").value = "";
+            document.getElementById("pwd").focus();
+        }
+    }
+    document.getElementById("pwd").addEventListener("keydown", e => {
+        if (e.key === "Enter") checkPassword();
+    });
+    document.getElementById("pwd").focus();
+</script>
+</body>
+</html>
