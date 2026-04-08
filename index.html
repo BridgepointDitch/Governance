@@ -20,9 +20,9 @@
             --section-num: #8B7E6A;
             --red: #b91c1c;
         }
-
+ 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
         body {
             font-family: 'DM Sans', sans-serif;
             background: var(--bg);
@@ -30,7 +30,7 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
-
+ 
         /* ── PASSWORD GATE ── */
         #gate {
             position: fixed; inset: 0;
@@ -81,23 +81,23 @@
             margin-top: 10px; display: none;
             font-family: 'DM Sans', sans-serif;
         }
-
+ 
         /* ── SITE ── */
         #site { display: none; }
-
+ 
         .container {
             max-width: 760px;
             margin: 0 auto;
             padding: 0 24px;
         }
-
+ 
         /* Header */
         header {
             padding: 60px 0 40px;
             border-bottom: 1px solid var(--border);
             margin-bottom: 48px;
         }
-
+ 
         header h1 {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: 28px;
@@ -106,22 +106,22 @@
             letter-spacing: -0.3px;
             margin-bottom: 8px;
         }
-
+ 
         header .subtitle {
             font-size: 15px;
             color: var(--text-light);
             font-weight: 400;
         }
-
+ 
         /* Intro */
         .intro { margin-bottom: 48px; }
-
+ 
         .intro p {
             font-size: 15px;
             color: var(--text-light);
             margin-bottom: 16px;
         }
-
+ 
         .intro .notice {
             background: var(--accent-light);
             border-left: 3px solid var(--accent);
@@ -131,7 +131,7 @@
             margin-top: 24px;
             border-radius: 0 6px 6px 0;
         }
-
+ 
         /* Timeline marker */
         .timeline-label {
             font-family: 'Source Serif 4', Georgia, serif;
@@ -143,7 +143,7 @@
             margin-bottom: 24px;
             margin-top: 56px;
         }
-
+ 
         /* Section cards */
         .section-card {
             background: var(--card-bg);
@@ -156,19 +156,19 @@
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
         }
-
+ 
         .section-card:hover {
             border-color: var(--accent);
             box-shadow: 0 2px 12px rgba(61, 107, 89, 0.08);
         }
-
+ 
         .section-card .card-header {
             display: flex;
             align-items: flex-start;
             gap: 16px;
             margin-bottom: 12px;
         }
-
+ 
         .section-card .num {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: 14px;
@@ -177,7 +177,7 @@
             min-width: 24px;
             padding-top: 2px;
         }
-
+ 
         .section-card h3 {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: 18px;
@@ -185,14 +185,14 @@
             color: var(--text);
             line-height: 1.4;
         }
-
+ 
         .section-card .summary {
             font-size: 14px;
             color: var(--text-light);
             margin-left: 40px;
             line-height: 1.65;
         }
-
+ 
         .section-card .doc-count {
             font-size: 12px;
             color: var(--accent);
@@ -200,7 +200,7 @@
             margin-top: 12px;
             font-weight: 500;
         }
-
+ 
         .section-card .status {
             display: inline-block;
             font-size: 11px;
@@ -210,11 +210,11 @@
             margin-left: 40px;
             margin-top: 10px;
         }
-
+ 
         .status-unresolved { background: #FFF3E0; color: var(--highlight); }
         .status-resolved   { background: var(--accent-light); color: var(--accent); }
         .status-pending    { background: #F0ECFF; color: #5B4FA0; }
-
+ 
         /* Pending motion */
         .motion-card {
             background: var(--card-bg);
@@ -223,7 +223,7 @@
             padding: 28px;
             margin-bottom: 16px;
         }
-
+ 
         .motion-card h3 {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: 17px;
@@ -231,31 +231,31 @@
             color: var(--highlight);
             margin-bottom: 14px;
         }
-
+ 
         .motion-card p {
             font-size: 14px;
             color: var(--text-light);
             line-height: 1.7;
         }
-
+ 
         /* Footer */
         footer {
             margin-top: 64px;
             padding: 32px 0 48px;
             border-top: 1px solid var(--border);
         }
-
+ 
         footer p {
             font-size: 13px;
             color: var(--text-light);
             margin-bottom: 8px;
         }
-
+ 
         footer .updated {
             font-size: 12px;
             color: var(--section-num);
         }
-
+ 
         /* Mobile */
         @media (max-width: 600px) {
             header { padding: 40px 0 28px; }
@@ -269,7 +269,7 @@
     </style>
 </head>
 <body>
-
+ 
 <!-- ── PASSWORD GATE ── -->
 <div id="gate">
     <div class="gate-box">
@@ -280,29 +280,29 @@
         <div class="gate-error" id="err">Incorrect access code. Please try again.</div>
     </div>
 </div>
-
+ 
 <!-- ── MAIN SITE ── -->
 <div id="site">
 <div class="container">
-
+ 
     <header>
         <h1>Bridgepoint Ditch Company</h1>
         <div class="subtitle">Member Information — Governance Review &amp; Supporting Documentation</div>
     </header>
-
+ 
     <div class="intro">
         <p>This page was prepared to provide members of the Bridgepoint Ditch Company with a factual record of governance matters raised during the Annual Meeting of February 28, 2026, and at the Board Meeting of February 26, 2026. All statements below are supported by documents, correspondence, and meeting records, which are available for review in each section.</p>
-
+ 
         <p>The purpose of this page is to allow every member to review the relevant information at their own pace before the upcoming membership meeting. No conclusions are drawn here. The documents speak for themselves, and the decisions belong to the membership.</p>
-
+ 
         <div class="notice">
             A membership meeting is scheduled for April 11, 2026. There is pending unfinished business from the February 28 meeting that requires membership action. Your attendance or proxy is important.
         </div>
     </div>
-
+ 
     <!-- CORPORATE STANDING -->
     <div class="timeline-label">Corporate Standing</div>
-
+ 
     <a class="section-card" href="section-dissolution.html">
         <div class="card-header">
             <span class="num">01</span>
@@ -311,52 +311,64 @@
         <div class="summary">
             The organization was administratively dissolved by the State of Oregon for failure to file the required annual report. The company operated without legal standing for approximately two years before reinstatement was completed. The bylaws assign the filing of annual reports and corporate records to the President.
         </div>
-        <div class="doc-count">2 documents — State records/reinstatement filing, full board correspondence over 10 months period</div>
+        <div class="doc-count">4 documents — State records, penalty receipts, reinstatement filing</div>
         <span class="status status-resolved">Reinstated</span>
     </a>
-
+ 
     <a class="section-card" href="section-taxexempt.html">
         <div class="card-header">
             <span class="num">02</span>
             <h3>Loss of Federal Tax-Exempt Status</h3>
         </div>
         <div class="summary">
-            The organization's 501(c)(12) tax-exempt status was automatically revoked by the IRS after no Form 990-N was filed since the EIN was assigned in March 2020. The Bylaws assign the filing of legal and regulatory compliance to the President. A Form 1024 application for reinstatement has been filed and the $600 fee has been paid. Reinstatement is expected within six to seven months.
+            The organization's 501(c)(12) tax-exempt status was automatically revoked by the IRS after no Form 990-N was filed since the EIN was assigned in March 2020. A Form 1024 application for reinstatement has been filed and the $600 fee has been paid. Reinstatement is expected within six to seven months.
         </div>
-        <div class="doc-count">3 documents — Board email correspondence, Form 1024 filing, payment receipt</div>
+        <div class="doc-count">3 documents — IRS records, Form 1024 confirmation, payment receipt</div>
         <span class="status status-pending">Reinstatement pending</span>
     </a>
-
-    <!-- FINANCIAL ADMINISTRATION -->
-    <div class="timeline-label">Financial Administration</div>
-
-    <a class="section-card" href="section-invoicing.html">
+ 
+    <a class="section-card" href="section-response.html">
         <div class="card-header">
             <span class="num">03</span>
+            <h3>Response to Recent Correspondence</h3>
+        </div>
+        <div class="summary">
+            The President's letter to members contains a number of assertions regarding the Treasurer's responsibilities and conduct. This section addresses those assertions with reference to the bylaws, IRS definitions, and recordings from official board and membership meetings.
+        </div>
+        <div class="doc-count">4 documents — Bylaws, IRS definition, meeting recordings with transcripts</div>
+        <span class="status status-unresolved">Contested</span>
+    </a>
+ 
+    <!-- FINANCIAL ADMINISTRATION -->
+    <div class="timeline-label">Financial Administration</div>
+ 
+    <a class="section-card" href="section-invoicing.html">
+        <div class="card-header">
+            <span class="num">04</span>
             <h3>Member Invoicing</h3>
         </div>
         <div class="summary">
-            Member invoices for 2026 were produced and mailed by the President without authorization from the Treasurer. The invoices contained calculation errors, omitted outstanding balances, deleted deliquent members invoice from Treasurer's dropbox files, and directed member payments to the President's personal address. The bylaws assign invoicing exclusively to the Treasurer and require payments to be sent directly to the Treasurer.
+            Member invoices for 2026 were produced and mailed by the President without authorization from the Treasurer. The invoices contained calculation errors, omitted outstanding balances, and directed member payments to the President's personal address. The bylaws assign invoicing exclusively to the Treasurer and require payments to be sent directly to the Treasurer.
         </div>
-        <div class="doc-count">2 documents — bylaws references, email correspondence</div>
+        <div class="doc-count">6 documents — Invoice samples, bylaws references, email correspondence</div>
         <span class="status status-unresolved">Unresolved</span>
     </a>
-
+ 
     <a class="section-card" href="section-bankaccount.html">
         <div class="card-header">
-            <span class="num">04</span>
+            <span class="num">05</span>
             <h3>Bank Account &amp; Financial Controls</h3>
         </div>
         <div class="summary">
-            The President has been the sole active signatory on the organization's bank account. The bylaws require two signatories — the President and the Secretary. The Secretary confirmed at the February 26 board meeting that he never added his signature in over a year of service. Checks have been processed with a single signature. Additionally, a former officer's signature remains on the account and has not been removed following the transition to the current board.
+            The President has been the sole signatory on the organization's bank account. The bylaws require two signatories — the President and the Secretary. The Secretary confirmed at the February 26 board meeting that he never added his signature in over two years of service. Checks have been processed with a single signature throughout.
         </div>
-        <div class="doc-count">3 documents — Bylaws provisions, board meeting record</div>
+        <div class="doc-count">3 documents — Bylaws provisions, board meeting record, text correspondence</div>
         <span class="status status-unresolved">Unresolved</span>
     </a>
-
+ 
     <a class="section-card" href="section-delinquent.html">
         <div class="card-header">
-            <span class="num">05</span>
+            <span class="num">06</span>
             <h3>Delinquent Account — Mishandled Payment</h3>
         </div>
         <div class="summary">
@@ -365,112 +377,115 @@
         <div class="doc-count">2 documents — Board meeting record, bylaws reference</div>
         <span class="status status-resolved">Payment since resolved</span>
     </a>
-
+ 
     <!-- MAINTENANCE & OVERSIGHT -->
     <div class="timeline-label">Maintenance &amp; Oversight</div>
-
+ 
     <a class="section-card" href="section-maintenance.html">
         <div class="card-header">
-            <span class="num">06</span>
-            <h3>Maintenance Expenditures &amp; Practices</h3>
-        </div>
-        <div class="summary">
-            Annual maintenance costs have averaged $4,935 against approximately $4,769 in assessment revenue, creating a structural deficit. Maintenance has been authorized and paid by the President without documented board pre-approval as required by the bylaws. There is no written contract or documented scope of work with the contractor. There is no maintenance log tracking which sections of the ditch have been cleaned, making it impossible to verify efficient use of member funds. Contractor invoices have been addressed to the President personally rather than to the organization. The bylaws require ditch banks to remain easily accessible and unobstructed for maintenance — in multiple locations, mounds of excavated material left along the banks have been colonized by blackberries, making those sections impassable. Additionally, the organization has been cleaning and paying for maintenance on a section that crosses Bureau of Land Management property. BLM does not pay assessments. No action has been taken to contact the BLM office in Grants Pass to discuss cost-sharing or responsibility for maintenance on federal land.
-        </div>
-        <div class="doc-count">5 documents — Financial records, invoices, bylaws references, photos</div>
-        <span class="status status-unresolved">Unresolved</span>
-    </a>
-    <a class="section-card" href="section-gate-incident.html">
-        <div class="card-header">
             <span class="num">07</span>
-            <h3>Gate Incident &amp; Contingency Failure — June 8, 2025</h3>
+            <h3>Maintenance Expenditures &amp; Practice</h3>
         </div>
         <div class="summary">
-            On June 8, 2025, the main gate controlling water flow into the ditch was found barely open, restricting delivery to members. The President was out of state at the time. When contacted by phone, the President repeatedly denied the gate was restricted despite being informed by a board member standing directly in front of it. A witness, Darrell Prose, was present and can confirm the condition of the gate. The Treasurer requested that keys to the locked gate be distributed to all board members as a contingency measure to ensure continuous water delivery — the bylaws require the President to guarantee the continuous functioning of gates and filters. This request has never been addressed. Three days after the incident, water levels rose to a point that caused flooding on the neighboring Bottroff property. According to the new property owner, the President did not respond promptly to the flooding report.
+            Annual maintenance costs have averaged $4,935 against approximately $4,769 in assessment revenue, creating a structural deficit. Maintenance has been authorized and paid by the President without documented board pre-approval. There is no written contract with the contractor, no maintenance log, and invoices have been addressed to the President personally rather than to the organization. Of eleven recorded payments, only three invoices have been produced.
         </div>
-        <div class="doc-count">3 documents — Video of gate, text message records, witness account</div>
+        <div class="doc-count">5 documents — Financial records, invoices, bank records</div>
         <span class="status status-unresolved">Unresolved</span>
     </a>
  
-    <!-- RECORDS & GOVERNANCE -->
-    <div class="timeline-label">Records &amp; Governance</div>
-
+    <a class="section-card" href="section-gate-incident.html">
+        <div class="card-header">
+            <span class="num">08</span>
+            <h3>Gate Incident &amp; Contingency Failure — June 8, 2025</h3>
+        </div>
+        <div class="summary">
+            On June 8, 2025, the Treasurer arrived at the ditch access gate with a witness to find it locked. The President, calling from out of state, insisted the gate was open. Video recorded on site directly contradicts this claim. The incident also revealed the absence of any contingency plan for ditch access when the President is unavailable. To date, no key has been shared with other officers and no contingency plan has been established.
+        </div>
+        <div class="doc-count">2 documents — Video recording, text correspondence</div>
+        <span class="status status-unresolved">Unresolved</span>
+    </a>
+ 
+    <!-- COMPANY RECORDS -->
+    <div class="timeline-label">Company Records &amp; Governance</div>
+ 
     <a class="section-card" href="section-minutes.html">
         <div class="card-header">
-            <span class="num">07</span>
+            <span class="num">09</span>
             <h3>Meeting Minutes &amp; Secretary Duties</h3>
         </div>
         <div class="summary">
-            The Secretary stated at the opening of the February 26 board meeting that when he took office, he did not read the bylaws or his duties, and that for two years he relied on the other officers to run the ditch. One of the Secretary duties is to produce and record minutes. Board and annual meeting minutes are the official written record of decisions made, actions taken, and matters discussed at each meeting. For a mutual irrigation company, they serve as the authoritative record of board authorization for expenditures, officer duties, and membership resolutions — and are required to be available for review by any member upon request. It is worth noting that the 2025 board meeting minutes were only uploaded to the shared company folder in a rush by the Secretary following the Treasurer's formal notice of February 22, 2026. The February 26, 2026 board meeting minutes remain in draft form — incomplete, unapproved, and largely inaccurate. To date, there are no approved minutes for the February 26 board meeting, no approved or draft minutes for the improperly noticed annual meeting of February 28, and no approved or draft minutes for the board maintenance meeting held on March 7, 2026. The absence of these records leaves the organization without a verifiable account of decisions made, commitments acknowledged, and actions authorized. 
+            Board meeting minutes are the official record of decisions made and actions authorized. The 2025 minutes were uploaded to the shared folder only after the Treasurer's formal notice of February 22, 2026. The February 26 board meeting minutes remain in draft — incomplete, unapproved, and inaccurate. No approved minutes exist for the February 28 annual meeting or the March 7 maintenance meeting. The Secretary acknowledged at the February 26 meeting that he had not read the description of his role in over two years of service.
         </div>
-        <div class="doc-count">4 documents — Secretary's draft minutes, correction request, bylaws references</div>
-        <span class="status status-unresolved">Under review</span>
+        <div class="doc-count">3 documents — Email correspondence, draft minutes, audio recording</div>
+        <span class="status status-unresolved">Unresolved</span>
     </a>
-
+ 
     <a class="section-card" href="section-communication.html">
         <div class="card-header">
-            <span class="num">08</span>
+            <span class="num">10</span>
             <h3>Board Communication &amp; Decision-Making</h3>
         </div>
         <div class="summary">
-            The Secretary confirmed at the February 26 board meeting that he responded to the President's email requesting a board meeting, but sent his reply only to the President and did not include the Treasurer. The President subsequently used the Treasurer's silence — caused by being excluded from the Secretary's reply — as justification for assuming the Treasurer's duties. The decision to take over the Treasurer's invoicing function was made in a private conversation between the President and Secretary, with no meeting notice, no minutes, and no involvement of the Treasurer.
+            The Secretary confirmed at the February 26 board meeting that he replied to the President's meeting request without copying the Treasurer. The President used the Treasurer's resulting silence as justification to unilaterally assume the Treasurer's invoicing duties. No meeting was ever held, no notice was issued, and the decision was made in a private exchange between the President and Secretary without the Treasurer's knowledge or involvement.
         </div>
         <div class="doc-count">4 documents — Email records, board meeting record</div>
         <span class="status status-unresolved">Unresolved</span>
     </a>
-
+ 
     <!-- EASEMENT -->
     <div class="timeline-label">Infrastructure</div>
-
+ 
     <a class="section-card" href="section-easement.html">
         <div class="card-header">
-            <span class="num">09</span>
+            <span class="num">11</span>
             <h3>Easement — Progress After Fifty Years</h3>
         </div>
         <div class="summary">
-            The organization has operated for decades without a recorded easement for access to critical ditch infrastructure, relying instead on informal goodwill from a neighboring landowner. Securing this easement has been identified as a priority since the current board took office over five years ago, but no concrete steps were taken until recently. Through research into county records, the original deed containing the easement description and legal centerline has been located. Darrell Prose, John Hill, and Slim Ameziani have been working directly with Shirley Woodrif, the current landowner. Conversations have been productive — she does not deny the easement exists and has expressed willingness to review a survey. Her deed does not currently reference the easement, and further investigation is needed to understand why the county recorded her deed without it and how the easement can be added to her title for permanent, documented access to Bridgepoint Ditch Company infrastructure. A surveyor will be needed to identify the easement on the ground. The membership will be asked to consider funding for the survey and legal documentation at the next meeting.
+            The organization has operated for decades without a recorded easement for access to critical ditch infrastructure. The Treasurer located the original deed containing the easement description and presented it to the landowner, who confirmed she had never seen the documents and would be amenable to formalizing the easement once a surveyor confirms the centerline. This represents the first concrete progress on an issue unaddressed for over fifty years.
         </div>
-        <div class="doc-count">5 documents — Deed records, surveyor maps, easement legal description, correspondence</div>
+        <div class="doc-count">3 documents — Deed records, surveyor maps, easement description</div>
         <span class="status status-pending">In progress</span>
     </a>
-
+ 
     <!-- CORRECTIVE ACTION -->
-    <div class="timeline-label">Looking Forward</div>
+    <div class="timeline-label">Corrective Action</div>
  
     <a class="section-card" href="section-corrective-action.html">
         <div class="card-header">
-            <span class="num">11</span>
+            <span class="num">12</span>
             <h3>Corrective Action Proposal — Governance Modernization</h3>
         </div>
         <div class="summary">
-            The issues documented in the preceding sections reflect systemic governance failures — not isolated incidents. Addressing them requires more than replacing individuals. It requires building transparency, accountability, and member access into the way this organization operates. This section presents a detailed proposal for modernizing Bridgepoint Ditch Company governance using free or near-free tools, at a total estimated cost of $20 per year. Every recommendation reduces the likelihood that the problems documented on this site can recur.
+            This section outlines a set of concrete proposals to modernize the governance of the Bridgepoint Ditch Company, address the structural gaps documented throughout this site, and establish clear procedures for financial oversight, officer duties, maintenance contracting, and record-keeping going forward.
         </div>
-        <div class="doc-count">8 proposals — Recorded meetings, financial transparency, maintenance tracking, electronic payments, remote voting</div>
+        <div class="doc-count">Supporting proposals and draft bylaw amendments</div>
         <span class="status status-pending">Proposed</span>
     </a>
-   <!-- PENDING MOTION -->
+ 
+    <!-- PENDING MOTION -->
     <div class="timeline-label" style="margin-top:56px;">Pending Business</div>
     <div class="motion-card">
         <h3>Motion to Remove the President</h3>
         <p>At the February 28, 2026 annual meeting, a motion was made and seconded to remove the President from office pursuant to Article IV, Section 6 of the bylaws, which provides that non-compliance may warrant removal through a vote conducted by the members. The motion was in debate when the meeting was adjourned due to disorder before a vote could be taken. Under standard parliamentary procedure, this motion remains pending and will be the first substantive item of business at the next properly noticed meeting. The membership will have the opportunity to hear from all parties, consider the evidence, and vote.</p>
     </div>
+ 
     <footer>
-        <p>This page was prepared by Slim Ameziani, member of the Bridgepoint Ditch Company, for the sole purpose of providing fellow members with access to governance records and supporting documentation. All documents referenced are available for review in the linked sections.</p>
-        <p>Questions or corrections may be directed to Sliamez@gmail.com.</p>
-        <div class="updated">Last updated: March 2026</div>
+        <p>This page was prepared by Natal Ameziani, member of the Bridgepoint Ditch Company, for the sole purpose of providing fellow members with access to governance records and supporting documentation. All documents referenced are available for review in the linked sections.</p>
+        <p>Questions or corrections may be directed to Natal Ameziani.</p>
+        <div class="updated">Last updated: April 2026</div>
     </footer>
-
+ 
 </div>
 </div>
-
+ 
 <script>
     const ACCESS_CODE = "BDC2024";
-
+ 
     if (sessionStorage.getItem("bdc_unlocked") === "yes") {
         document.getElementById("gate").style.display = "none";
         document.getElementById("site").style.display = "block";
     }
-
+ 
     function checkPassword() {
         const val = document.getElementById("pwd").value.trim();
         if (val === ACCESS_CODE) {
@@ -486,7 +501,7 @@
             document.getElementById("pwd").focus();
         }
     }
-
+ 
     document.getElementById("pwd").addEventListener("keydown", e => {
         if (e.key === "Enter") checkPassword();
     });
