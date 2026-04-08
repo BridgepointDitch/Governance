@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <title>Response to Recent Correspondence — Bridgepoint Ditch Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAFAF7;
+            --text: #2C2C2C;
+            --text-light: #5A5A5A;
+            --accent: #3D6B59;
+            --accent-light: #E8F0EC;
+            --border: #D4D0C8;
+            --card-bg: #FFFFFF;
+            --highlight: #C4763A;
+            --section-num: #8B7E6A;
+            --red: #b91c1c;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+ 
+        /* ── PASSWORD GATE ── */
+        #gate {
+            position: fixed; inset: 0;
+            background: #2C2C2C;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999; transition: opacity 0.4s;
+        }
+        #gate.hidden { opacity: 0; pointer-events: none; }
+        .gate-box {
+            background: var(--bg); border-radius: 8px; padding: 52px 44px;
+            max-width: 420px; width: 90%; text-align: center;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+        }
+        .gate-box h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.3rem; color: var(--text); margin-bottom: 6px; font-weight: 700;
+        }
+        .gate-box .gate-sub { font-size: 0.85rem; color: var(--text-light); margin-bottom: 32px; line-height: 1.5; }
+        .gate-box input {
+            width: 100%; padding: 13px 16px; border: 1.5px solid var(--border); border-radius: 6px;
+            font-size: 1.05rem; text-align: center; letter-spacing: 0.2em; margin-bottom: 12px;
+            font-family: monospace; outline: none; background: white; color: var(--text);
+        }
+        .gate-box input:focus { border-color: var(--accent); }
+        .gate-box button {
+            width: 100%; padding: 13px; background: var(--accent); color: white; border: none;
+            border-radius: 6px; font-size: 0.95rem; cursor: pointer;
+            font-family: 'DM Sans', sans-serif; font-weight: 600;
+        }
+        .gate-box button:hover { background: #2f5244; }
+        .gate-error { color: var(--red); font-size: 0.82rem; margin-top: 10px; display: none; }
+ 
+        /* ── SITE ── */
+        #site { display: none; }
+ 
+        .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+ 
+        .breadcrumb {
+            padding: 20px 0 0;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        .breadcrumb a { color: var(--accent); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+ 
+        .section-header {
+            padding: 32px 0 28px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 36px;
+        }
+        .section-label {
+            font-size: 12px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;
+        }
+        .section-header h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 26px; font-weight: 700; color: var(--text);
+            line-height: 1.3; margin-bottom: 12px;
+        }
+ 
+        .summary-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+        }
+        .summary-box .summary-label {
+            font-size: 11px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 10px;
+        }
+        .summary-box p {
+            font-size: 15px; color: var(--text-light); line-height: 1.75;
+            margin-bottom: 10px;
+        }
+        .summary-box p:last-child { margin-bottom: 0; }
+ 
+        /* Claim block */
+        .claim-block {
+            background: #FFF8F3;
+            border: 1px solid #E8D5C0;
+            border-left: 3px solid var(--highlight);
+            border-radius: 0 8px 8px 0;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+        }
+        .claim-label {
+            font-size: 11px; font-weight: 600; color: var(--highlight);
+            text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 8px;
+        }
+        .claim-text {
+            font-size: 14px; color: var(--text-light);
+            line-height: 1.7; font-style: italic;
+        }
+ 
+        /* Response label */
+        .response-label {
+            font-size: 12px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1.5px;
+            margin-bottom: 16px; margin-top: 28px;
+            padding-bottom: 10px; border-bottom: 1px solid var(--border);
+        }
+ 
+        /* Document block */
+        .doc-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .doc-block-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .doc-block-header .doc-title {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 16px; font-weight: 600;
+            color: var(--text); margin-bottom: 6px;
+        }
+        .doc-block-header .doc-desc {
+            font-size: 13px; color: var(--text-light); line-height: 1.55;
+        }
+        .doc-actions {
+            display: flex; gap: 8px; flex-shrink: 0;
+            flex-wrap: wrap; padding-top: 2px;
+        }
+        .btn-view {
+            display: inline-block; padding: 8px 18px;
+            background: var(--accent); color: white;
+            text-decoration: none; border-radius: 6px;
+            font-size: 13px; font-weight: 600;
+            font-family: 'DM Sans', sans-serif; white-space: nowrap;
+        }
+        .btn-view:hover { background: #2f5244; }
+        .btn-download {
+            display: inline-block; padding: 8px 18px;
+            border: 1px solid var(--border); color: var(--text-light);
+            text-decoration: none; border-radius: 6px;
+            font-size: 13px; font-family: 'DM Sans', sans-serif; white-space: nowrap;
+        }
+        .btn-download:hover { border-color: var(--accent); color: var(--accent); }
+ 
+        /* Audio player */
+        .audio-wrapper {
+            padding: 20px 24px;
+            background: var(--bg);
+        }
+        .audio-wrapper audio {
+            width: 100%;
+            display: block;
+            margin-bottom: 16px;
+        }
+        .transcript {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 14px 18px;
+        }
+        .transcript-label {
+            font-size: 11px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+        }
+        .transcript-text {
+            font-size: 13px; color: var(--text-light);
+            line-height: 1.7; font-style: italic;
+        }
+ 
+        /* Clarification note */
+        .clarification {
+            background: var(--accent-light);
+            border: 1px solid #b8d4c4;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--accent);
+            line-height: 1.65;
+        }
+        .clarification strong { font-weight: 600; }
+ 
+        /* Navigation */
+        .page-nav {
+            display: flex; gap: 12px; flex-wrap: wrap;
+            margin-top: 56px; padding-top: 28px;
+            border-top: 1px solid var(--border);
+        }
+        .nav-btn {
+            padding: 10px 20px; border: 1px solid var(--border);
+            border-radius: 6px; text-decoration: none;
+            color: var(--text-light); font-size: 13px;
+            font-family: 'DM Sans', sans-serif; font-weight: 500;
+            transition: all 0.2s;
+        }
+        .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .nav-btn.home { background: var(--accent); color: white; border-color: var(--accent); }
+        .nav-btn.home:hover { background: #2f5244; }
+ 
+        footer {
+            margin-top: 64px; padding: 28px 0 48px;
+            border-top: 1px solid var(--border);
+            font-size: 12px; color: var(--section-num);
+        }
+ 
+        @media (max-width: 600px) {
+            .doc-block-header { flex-direction: column; }
+            .doc-actions { width: 100%; }
+            .btn-view, .btn-download { flex: 1; text-align: center; }
+            .section-header h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+ 
+<div id="gate">
+    <div class="gate-box">
+        <h1>Bridgepoint Ditch Company</h1>
+        <p class="gate-sub">Members-only access.<br>Enter your access code to continue.</p>
+        <input type="password" id="pwd" placeholder="Access Code" autocomplete="off">
+        <button onclick="checkPassword()">Enter</button>
+        <div class="gate-error" id="err">Incorrect access code.</div>
+    </div>
+</div>
+ 
+<div id="site">
+<div class="container">
+ 
+    <div class="breadcrumb">
+        <a href="index.html">← Back to Overview</a>
+    </div>
+ 
+    <div class="section-header">
+        <div class="section-label">Corporate Standing &nbsp;·&nbsp; 03 of 10</div>
+        <h1>Response to Recent Correspondence</h1>
+    </div>
+ 
+    <div class="summary-box">
+        <div class="summary-label">Context</div>
+        <p>Following the distribution of governance documentation to members, a letter was circulated by the President containing a number of assertions regarding the Treasurer's conduct and responsibilities. The following addresses those assertions with reference to the bylaws, IRS definitions, and recordings of official board and membership meetings.</p>
+        <p>All audio clips below are excerpts from recordings of official Bridgepoint Ditch Company meetings. Transcripts are provided beneath each clip for clarity.</p>
+    </div>
+ 
+    <!-- ══ CLAIM 1 ══ -->
+    <div class="claim-block">
+        <div class="claim-label">Claim from President's Letter</div>
+        <div class="claim-text">"The IRS 990-N: Filing is the Treasurer's responsibility — not the President's. At the February 28 meeting, Slim told the membership that organizations under $50,000 in revenue were exempt from filing. That is not correct, and the tax-exempt status had already been lost due to his years of non filing. He has since filed for reinstatement and paid $600 fee, which needed to be done — but this was his obligation from the day he became Treasurer in 2021, his error to own, and his mischaracterization to answer, not mine."</div>
+    </div>
+ 
+    <div class="response-label">Response — Document 1 of 4</div>
+ 
+    <div class="doc-block">
+        <div class="doc-block-header">
+            <div>
+                <div class="doc-title">Bylaws — President's Responsibility for Legal &amp; Regulatory Compliance</div>
+                <div class="doc-desc">The following bylaw provision directly addresses the assignment of legal and regulatory compliance responsibilities. The filing of IRS annual compliance documents falls within the scope of maintaining the organization's legal standing — a duty explicitly assigned to the President.</div>
+            </div>
+            <div class="doc-actions">
+                <a href="docs/bylaws-compliance.png" target="_blank" class="btn-view">View</a>
+                <a href="docs/bylaws-compliance.png" download class="btn-download">Download</a>
+            </div>
+        </div>
+        <img src="docs/bylaws-compliance.png" alt="Bylaws — President Compliance Responsibility" style="width:100%; display:block;">
+    </div>
+ 
+    <div class="response-label">Response — Document 2 of 4</div>
+ 
+    <div class="doc-block">
+        <div class="doc-block-header">
+            <div>
+                <div class="doc-title">IRS Definition — Form 990-N as an Annual Compliance Filing</div>
+                <div class="doc-desc">The following IRS definition confirms that Form 990-N is an annual compliance filing required to maintain tax-exempt status — not a fiscal management document. Compliance filings fall under the President's bylaw responsibilities, not the Treasurer's.</div>
+            </div>
+            <div class="doc-actions">
+                <a href="docs/990N-compliance-filing.png" target="_blank" class="btn-view">View</a>
+                <a href="docs/990N-compliance-filing.png" download class="btn-download">Download</a>
+            </div>
+        </div>
+        <img src="docs/990N-compliance-filing.png" alt="IRS 990-N Compliance Filing Definition" style="width:100%; display:block;">
+    </div>
+ 
+    <div class="response-label">Response — Document 3 of 4</div>
+ 
+    <div class="doc-block">
+        <div class="doc-block-header">
+            <div>
+                <div class="doc-title">Audio — President at February 28 Annual Meeting</div>
+                <div class="doc-desc">The following recording is from the February 28, 2026 annual meeting. The President references Form 990-EZ as the applicable IRS filing requirement for the organization. Form 990-EZ applies to organizations with gross receipts between $50,000 and $200,000. Bridgepoint Ditch Company collects under $50,000 annually and is therefore not subject to Form 990-EZ. The applicable filing is Form 990-N. The Treasurer's statement at the meeting was correct.</div>
+            </div>
+            <div class="doc-actions">
+                <a href="docs/990EZ.m4a" target="_blank" class="btn-view">Open Audio</a>
+            </div>
+        </div>
+        <div class="audio-wrapper">
+            <audio controls>
+                <source src="docs/990EZ.m4a" type="audio/mp4">
+                Your browser does not support audio playback. Use the Open Audio button above.
+            </audio>
+            <div class="transcript">
+                <div class="transcript-label">Transcript</div>
+                <div class="transcript-text">"Slim, as treasurer, is supposed to submit a form IRS, 990EZ, I believe, to keep our non profit status. I have not seen any proof of that, period. 990EZ which is our non profit status to be filed by the Treasurer."</div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="clarification">
+        <strong>For reference:</strong> Form 990-EZ is required for organizations with gross receipts between $50,000 and $200,000. Form 990-N (the e-Postcard) is required for organizations with gross receipts under $50,000. Bridgepoint Ditch Company falls in the latter category. The President cited the wrong form. The Treasurer correctly identified that Form 990-EZ did not apply.
+    </div>
+ 
+    <div class="response-label">Response — Document 4 of 4</div>
+ 
+    <div class="doc-block">
+        <div class="doc-block-header">
+            <div>
+                <div class="doc-title">Audio — Secretary at February 26 Board Meeting</div>
+                <div class="doc-desc">The following recording is from the February 26, 2026 board meeting. The Secretary acknowledges that he did not read the description of his role upon taking office and relied on other officers to carry out his duties. This statement was made voluntarily by the Secretary during the meeting.</div>
+            </div>
+            <div class="doc-actions">
+                <a href="docs/Secretary-role.m4a" target="_blank" class="btn-view">Open Audio</a>
+            </div>
+        </div>
+        <div class="audio-wrapper">
+            <audio controls>
+                <source src="docs/Secretary-role.m4a" type="audio/mp4">
+                Your browser does not support audio playback. Use the Open Audio button above.
+            </audio>
+            <div class="transcript">
+                <div class="transcript-label">Transcript</div>
+                <div class="transcript-text">"When I signed on to be the Secretary, I was negligent in reading the description of the Secretary's role."</div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="page-nav">
+        <a href="index.html" class="nav-btn home">&#8617; Overview</a>
+        <a href="section-taxexempt.html" class="nav-btn">← Loss of Federal Tax-Exempt Status</a>
+        <a href="section-invoicing.html" class="nav-btn">Member Invoicing →</a>
+    </div>
+ 
+</div>
+ 
+<footer>
+    <div class="container">
+        Bridgepoint Ditch Company — Member Governance Documentation &nbsp;·&nbsp; Private &amp; Confidential
+    </div>
+</footer>
+</div>
+ 
+<script>
+    const ACCESS_CODE = "BDC2024";
+    if (sessionStorage.getItem("bdc_unlocked") === "yes") {
+        document.getElementById("gate").style.display = "none";
+        document.getElementById("site").style.display = "block";
+    }
+    function checkPassword() {
+        const val = document.getElementById("pwd").value.trim();
+        if (val === ACCESS_CODE) {
+            sessionStorage.setItem("bdc_unlocked", "yes");
+            document.getElementById("gate").classList.add("hidden");
+            setTimeout(() => {
+                document.getElementById("gate").style.display = "none";
+                document.getElementById("site").style.display = "block";
+            }, 400);
+        } else {
+            document.getElementById("err").style.display = "block";
+            document.getElementById("pwd").value = "";
+            document.getElementById("pwd").focus();
+        }
+    }
+    document.getElementById("pwd").addEventListener("keydown", e => {
+        if (e.key === "Enter") checkPassword();
+    });
+    document.getElementById("pwd").focus();
+</script>
+</body>
+</html>
+ 
