@@ -28,7 +28,7 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
-
+ 
         /* ── PASSWORD GATE ── */
         #gate {
             position: fixed; inset: 0;
@@ -60,12 +60,12 @@
         }
         .gate-box button:hover { background: #2f5244; }
         .gate-error { color: var(--red); font-size: 0.82rem; margin-top: 10px; display: none; }
-
+ 
         /* ── SITE ── */
         #site { display: none; }
-
+ 
         .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
+ 
         /* Breadcrumb */
         .breadcrumb {
             padding: 20px 0 0;
@@ -74,7 +74,7 @@
         }
         .breadcrumb a { color: var(--accent); text-decoration: none; }
         .breadcrumb a:hover { text-decoration: underline; }
-
+ 
         /* Section header */
         .section-header {
             padding: 32px 0 28px;
@@ -104,7 +104,7 @@
         .status-unresolved { background: #FFF3E0; color: var(--highlight); }
         .status-resolved   { background: var(--accent-light); color: var(--accent); }
         .status-pending    { background: #F0ECFF; color: #5B4FA0; }
-
+ 
         /* Summary */
         .summary-box {
             background: var(--card-bg);
@@ -123,7 +123,7 @@
             margin-bottom: 10px;
         }
         .summary-box p:last-child { margin-bottom: 0; }
-
+ 
         /* Docs section */
         .docs-label {
             font-size: 12px; font-weight: 600; color: var(--section-num);
@@ -131,7 +131,7 @@
             margin-bottom: 16px; padding-bottom: 10px;
             border-bottom: 1px solid var(--border);
         }
-
+ 
         /* Document block */
         .doc-block {
             background: var(--card-bg);
@@ -179,7 +179,32 @@
         }
         .btn-download:hover { border-color: var(--accent); color: var(--accent); }
         .pdf-frame { width: 100%; height: 520px; border: none; display: block; }
-
+ 
+        /* Audio player */
+        .audio-wrapper {
+            padding: 20px 24px;
+            background: var(--bg);
+        }
+        .audio-wrapper audio {
+            width: 100%;
+            display: block;
+            margin-bottom: 16px;
+        }
+        .transcript {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 14px 18px;
+        }
+        .transcript-label {
+            font-size: 11px; font-weight: 600; color: var(--section-num);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+        }
+        .transcript-text {
+            font-size: 13px; color: var(--text-light);
+            line-height: 1.7; font-style: italic;
+        }
+ 
         /* Placeholder */
         .placeholder {
             background: var(--bg);
@@ -195,7 +220,7 @@
             padding: 2px 7px; border-radius: 4px;
             font-size: 12px; color: var(--accent);
         }
-
+ 
         /* Navigation */
         .page-nav {
             display: flex; gap: 12px; flex-wrap: wrap;
@@ -219,14 +244,14 @@
             border-color: var(--accent);
         }
         .nav-btn.home:hover { background: #2f5244; }
-
+ 
         /* Footer */
         footer {
             margin-top: 64px; padding: 28px 0 48px;
             border-top: 1px solid var(--border);
             font-size: 12px; color: var(--section-num);
         }
-
+ 
         /* Legal References */
         .legal-refs { margin-bottom: 40px; }
         .legal-refs-label {
@@ -251,16 +276,7 @@
             font-size: 13px; color: var(--text-light); line-height: 1.65; margin-bottom: 12px;
         }
         .legal-ref-block .ref-text:last-child { margin-bottom: 0; }
-        .screenshot-placeholder {
-            background: var(--bg); border: 2px dashed var(--border); border-radius: 8px;
-            padding: 24px; margin-bottom: 12px; text-align: center;
-        }
-        .screenshot-placeholder p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
-        .screenshot-placeholder code {
-            background: white; border: 1px solid var(--border);
-            padding: 2px 7px; border-radius: 4px; font-size: 12px; color: var(--accent);
-        }
-
+ 
         @media (max-width: 600px) {
             .doc-block-header { flex-direction: column; }
             .doc-actions { width: 100%; }
@@ -270,7 +286,7 @@
     </style>
 </head>
 <body>
-
+ 
 <div id="gate">
     <div class="gate-box">
         <h1>Bridgepoint Ditch Company</h1>
@@ -280,26 +296,26 @@
         <div class="gate-error" id="err">Incorrect access code.</div>
     </div>
 </div>
-
+ 
 <div id="site">
 <div class="container">
-
+ 
     <div class="breadcrumb">
         <a href="index.html">← Back to Overview</a>
     </div>
-
+ 
     <div class="section-header">
-        <div class="section-label">Records &amp; Governance &nbsp;·&nbsp; 07 of 09</div>
+        <div class="section-label">Company Records &amp; Governance &nbsp;·&nbsp; 09 of 12</div>
         <h1>Meeting Minutes &amp; Secretary Duties</h1>
-        <span class="status status-unresolved">Under review</span>
+        <span class="status status-unresolved">Unresolved</span>
     </div>
-
+ 
     <div class="summary-box">
         <div class="summary-label">Summary</div>
-        <p>The Secretary stated at the opening of the February 26 board meeting that when he took office, he did not read the bylaws or his duties, and that for two years he relied on the other officers to run the ditch. One of the Secretary duties is to produce and record minutes. Board and annual meeting minutes are the official written record of decisions made, actions taken, and matters discussed at each meeting. For a mutual irrigation company, they serve as the authoritative record of board authorization for expenditures, officer duties, and membership resolutions — and are required to be available for review by any member upon request. It is worth noting that the 2025 board meeting minutes were only uploaded to the shared company folder in a rush by the Secretary following the Treasurer's formal notice of February 22, 2026. The February 26, 2026 board meeting minutes remain in draft form — incomplete, unapproved, and largely inaccurate. To date, there are no approved minutes for the February 26 board meeting, no approved or draft minutes for the improperly noticed annual meeting of February 28, and no approved or draft minutes for the board maintenance meeting held on March 7, 2026. The absence of these records leaves the organization without a verifiable account of decisions made, commitments acknowledged, and actions authorized. </p>
-        <p></p>
+        <p>The Secretary stated at the opening of the February 26 board meeting that when he took office, he did not read the bylaws or his duties, and that for two years he relied on the other officers to run the ditch. One of the Secretary's duties is to produce and record minutes. Board and annual meeting minutes are the official written record of decisions made, actions taken, and matters discussed at each meeting. For a mutual irrigation company, they serve as the authoritative record of board authorization for expenditures, officer duties, and membership resolutions — and are required to be available for review by any member upon request.</p>
+        <p>The 2025 board meeting minutes were only uploaded to the shared company folder in a rush by the Secretary following the Treasurer's formal notice of February 22, 2026. The February 26, 2026 board meeting minutes remain in draft form — incomplete, unapproved, and largely inaccurate. To date, there are no approved minutes for the February 26 board meeting, no approved or draft minutes for the improperly noticed annual meeting of February 28, and no approved or draft minutes for the board maintenance meeting held on March 7, 2026. The absence of these records leaves the organization without a verifiable account of decisions made, commitments acknowledged, and actions authorized.</p>
     </div>
-
+ 
     <div class="legal-refs">
         <div class="legal-refs-label">Legal References</div>
         <div class="legal-ref-block">
@@ -324,13 +340,37 @@
             <div class="ref-text">Nonprofit corporations are required to keep permanent records including minutes of all meetings of members and the board of directors, as well as records of all actions taken by committees of the board.</div>
         </div>
     </div>
-
+ 
     <div class="docs-label">Supporting Documents</div>
-
-     <div class="doc-block">
+ 
+    <!-- DOCUMENT 1: Audio — Secretary admission (first) -->
+    <div class="doc-block">
         <div class="doc-block-header">
             <div>
-                <div class="doc-title">Board Email Correspondence — 2025 minutes correction</div>
+                <div class="doc-title">Audio — Secretary at February 26 Board Meeting</div>
+                <div class="doc-desc">The following recording is from the February 26, 2026 board meeting. The Secretary voluntarily acknowledges that he did not read the description of his role upon taking office and largely relied on other officers to carry out his duties throughout his two years of service.</div>
+            </div>
+            <div class="doc-actions">
+                <a href="docs/Secretary-role.m4a" target="_blank" class="btn-view">Open Audio</a>
+            </div>
+        </div>
+        <div class="audio-wrapper">
+            <audio controls>
+                <source src="docs/Secretary-role.m4a" type="audio/mp4">
+                Your browser does not support audio playback. Use the Open Audio button above.
+            </audio>
+            <div class="transcript">
+                <div class="transcript-label">Transcript</div>
+                <div class="transcript-text">"When I signed on to be the Secretary, I was negligent in reading the description of the Secretary's role."</div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- DOCUMENT 2: 2025 minutes correction email -->
+    <div class="doc-block">
+        <div class="doc-block-header">
+            <div>
+                <div class="doc-title">Board Email Correspondence — 2025 Minutes Correction</div>
                 <div class="doc-desc">The following email exchange between the Treasurer and the Secretary documents the Treasurer's attempt to obtain accurate and complete minutes from a 2025 board meeting. The Secretary's initial draft was notably brief for a meeting that lasted approximately 45 minutes, failing to capture the substance of the discussion. The exchange illustrates the broader difficulty the Treasurer has faced in getting fellow board members to fulfill their basic duties with the diligence and accuracy the organization requires.</div>
             </div>
             <div class="doc-actions">
@@ -338,12 +378,14 @@
                 <a href="docs/2025-minutes-correction.pdf" download class="btn-download">Download</a>
             </div>
         </div>
-        <iframe class="pdf-frame" src="docs/2025-minutes-correction.pdf" title="Board Email Correspondence"></iframe>
+        <iframe class="pdf-frame" src="docs/2025-minutes-correction.pdf" title="2025 Minutes Correction Email"></iframe>
     </div>
-   <div class="doc-block">
+ 
+    <!-- DOCUMENT 3: 2026 unapproved board minutes -->
+    <div class="doc-block">
         <div class="doc-block-header">
             <div>
-                <div class="doc-title">Board Email Correspondence — 2026 unapproved board minutes </div>
+                <div class="doc-title">Unapproved Draft Minutes — February 26, 2026 Board Meeting</div>
                 <div class="doc-desc">The following unapproved draft minutes from the February 26, 2026 board meeting are presented here for member review. They remain incomplete and unapproved. Members are encouraged to cross-reference them with the other documents in this section to form their own assessment of the accuracy and completeness of the record.</div>
             </div>
             <div class="doc-actions">
@@ -351,23 +393,24 @@
                 <a href="docs/board-meeting-minutes-approval.pdf" download class="btn-download">Download</a>
             </div>
         </div>
-        <iframe class="pdf-frame" src="docs/board-meeting-minutes-approval.pdf" title="Board Email Correspondence"></iframe>
+        <iframe class="pdf-frame" src="docs/board-meeting-minutes-approval.pdf" title="Unapproved Draft Minutes February 26 2026"></iframe>
     </div>
+ 
     <div class="page-nav">
         <a href="index.html" class="nav-btn home">&#8617; Overview</a>
-        <a href="section-maintenance.html" class="nav-btn">← Maintenance Expenditures</a>
-        <a href="section-communication.html" class="nav-btn">Board Communication →</a>
+        <a href="section-gate-incident.html" class="nav-btn">← Gate Incident &amp; Contingency Failure</a>
+        <a href="section-communication.html" class="nav-btn">Board Communication &amp; Decision-Making →</a>
     </div>
-
+ 
 </div>
-
+ 
 <footer>
     <div class="container">
         Bridgepoint Ditch Company — Member Governance Documentation &nbsp;·&nbsp; Private &amp; Confidential
     </div>
 </footer>
 </div>
-
+ 
 <script>
     const ACCESS_CODE = "BDC2024";
     if (sessionStorage.getItem("bdc_unlocked") === "yes") {
